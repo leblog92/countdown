@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<
+	alarm-clock_23f0.png
+    <title>Décompte jusqu'au 24/05/25</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .countdown {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown h1 {
+            margin: 0 0 20px;
+        }
+        .time {
+            font-size: 2em;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1>Le certificat de sécurité du site de la Médiathèque expirera dans</h1>
+        <div id="time" class="time"></div>
+		<a href="rappel.ics"><div id="ics">Ajouter au calendrier</div></a>
+    </div>
+
+    <script>
+        function calculateTimeRemaining(endDate) {
+            const now = new Date();
+            const distance = endDate - now;
+
+            const months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            return {
+                months,
+                days,
+                hours,
+                minutes,
+                seconds
+            };
+        }
+
+        function updateCountdown() {
+            const targetDate = new Date('2025-05-24T00:00:00');
+            const { months, days, hours, minutes, seconds } = calculateTimeRemaining(targetDate);
+
+            document.getElementById('time').innerHTML = `
+                ${months} mois, ${days} jours, ${hours} heures, ${minutes} minutes et ${seconds} secondes
+            `;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

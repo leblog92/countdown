@@ -58,9 +58,9 @@
                 seconds
             };
         }
-
+		
         function updateCountdown() {
-            const targetDate = new Date('2025-05-24T00:00:00');
+            const targetDate = new Date('2025-05-25T23:59:59');
             const { months, days, hours, minutes, seconds } = calculateTimeRemaining(targetDate);
 
             document.getElementById('time').innerHTML = `

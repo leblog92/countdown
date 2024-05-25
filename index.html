@@ -29,13 +29,24 @@
             font-size: 2em;
             margin: 5px 0;
         }
+		.ics {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			position:fixed;
+			bottom: 20px;
+			left:auto;
+			right:auto;
+        }
     </style>
 </head>
 <body>
     <div class="countdown">
         <h1>Le certificat de sécurité du site de la Médiathèque expirera dans</h1>
         <div id="time" class="time"></div>
-		<a href="rappel.ics"><div id="ics">Ajouter au calendrier</div></a>
+		<a href="rappel.ics"><div class="ics">Ajouter au calendrier</div></a>
     </div>
 
     <script>
